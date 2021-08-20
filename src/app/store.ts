@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
+import textSearchReducer from '../features/text-search/text-search-slice';
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    textSearch: textSearchReducer,
+  },
 });
 
 export default store;
