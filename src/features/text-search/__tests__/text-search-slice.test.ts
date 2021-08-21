@@ -15,6 +15,7 @@ describe('searchInText action', () => {
     expect(nextState).toEqual({
       ...initialState,
       text,
+      textChunks: [text]
     })
   })
 });
@@ -25,14 +26,16 @@ describe('clearSearch action', () => {
     const previousState = {
       text,
       search: 'l',
-      matchIndices: [2, 3],
-      activeMatchIndex: 1,
+      textChunks: ['He', 'l', 'l', 'o!'],
+      matchingChunksIndices: [1, 2],
+      activeChunkIndex: 1,
     }
     const expectedNextState = {
       text,
       search: null,
-      matchIndices: [],
-      activeMatchIndex: 0,
+      textChunks: [text],
+      matchingChunksIndices: [],
+      activeChunkIndex: -1,
     }
 
     const nextState = reducer(previousState, clearSearch());
@@ -51,8 +54,9 @@ describe('search action', () => {
     const expectedNextState = {
       text,
       search: searchString,
-      matchIndices: [2, 3],
-      activeMatchIndex: 0,
+      textChunks: ['He', 'l', 'l', 'o!'],
+      matchingChunksIndices: [1, 2],
+      activeChunkIndex: 1,
     }
 
     const nextState = reducer(previousState, search(searchString));
@@ -69,8 +73,9 @@ describe('search action', () => {
     const expectedNextState = {
       text,
       search: searchString,
-      matchIndices: [],
-      activeMatchIndex: 0,
+      textChunks: ['Hello!'],
+      matchingChunksIndices: [],
+      activeChunkIndex: -1,
     }
 
     const nextState = reducer(previousState, search(searchString));
@@ -85,14 +90,16 @@ describe('goToNextMatch action', () => {
     const previousState = {
       text,
       search: searchString,
-      matchIndices: [2, 3],
-      activeMatchIndex: 0,
+      textChunks: ['He', 'l', 'l', 'o!'],
+      matchingChunksIndices: [1, 2],
+      activeChunkIndex: 1,
     };
     const expectedNextState = {
       text,
       search: searchString,
-      matchIndices: [2, 3],
-      activeMatchIndex: 1,
+      textChunks: ['He', 'l', 'l', 'o!'],
+      matchingChunksIndices: [1, 2],
+      activeChunkIndex: 2,
     }
 
     const nextState = reducer(previousState, goToNextMatch());
@@ -105,14 +112,16 @@ describe('goToNextMatch action', () => {
     const previousState = {
       text,
       search: searchString,
-      matchIndices: [2, 3],
-      activeMatchIndex: 1,
+      textChunks: ['He', 'l', 'l', 'o!'],
+      matchingChunksIndices: [1, 2],
+      activeChunkIndex: 2,
     };
     const expectedNextState = {
       text,
       search: searchString,
-      matchIndices: [2, 3],
-      activeMatchIndex: 0,
+      textChunks: ['He', 'l', 'l', 'o!'],
+      matchingChunksIndices: [1, 2],
+      activeChunkIndex: 1,
     }
 
     const nextState = reducer(previousState, goToNextMatch());
@@ -127,14 +136,16 @@ describe('goToPrevMatch action', () => {
     const previousState = {
       text,
       search: searchString,
-      matchIndices: [2, 3],
-      activeMatchIndex: 1,
+      textChunks: ['He', 'l', 'l', 'o!'],
+      matchingChunksIndices: [1, 2],
+      activeChunkIndex: 2,
     };
     const expectedNextState = {
       text,
       search: searchString,
-      matchIndices: [2, 3],
-      activeMatchIndex: 0,
+      textChunks: ['He', 'l', 'l', 'o!'],
+      matchingChunksIndices: [1, 2],
+      activeChunkIndex: 1,
     }
 
     const nextState = reducer(previousState, goToPreviousMatch());
@@ -147,14 +158,16 @@ describe('goToPrevMatch action', () => {
     const previousState = {
       text,
       search: searchString,
-      matchIndices: [2, 3],
-      activeMatchIndex: 0,
+      textChunks: ['He', 'l', 'l', 'o!'],
+      matchingChunksIndices: [1, 2],
+      activeChunkIndex: 1,
     };
     const expectedNextState = {
       text,
       search: searchString,
-      matchIndices: [2, 3],
-      activeMatchIndex: 1,
+      textChunks: ['He', 'l', 'l', 'o!'],
+      matchingChunksIndices: [1, 2],
+      activeChunkIndex: 2,
     }
 
     const nextState = reducer(previousState, goToPreviousMatch());
