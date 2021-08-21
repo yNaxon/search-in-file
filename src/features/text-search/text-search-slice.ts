@@ -45,8 +45,10 @@ export const textSearchSlice = createSlice({
       }
       else {
         const textChunks = splitText(searchValue, state.text, indexOfAll(searchValue, state.text));
-        const matchIndices = textChunks.reduce(
-          ((indices, chunk, index) => chunk.toLowerCase() === searchValue.toLowerCase() ? [...indices, index] : indices),
+        const matchIndices = textChunks.reduce(((indices, chunk, index) =>
+          chunk.toLowerCase() === searchValue.toLowerCase()
+            ? [...indices, index]
+            : indices),
           [] as number[]
         );
         const activeChunkIndex = matchIndices.length === 0
