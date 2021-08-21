@@ -1,5 +1,5 @@
-# Search In File
-Search in file lets you search for a text in any file – on the web.
+# Sherlock
+Sherlock lets you search for a text in any file – on the web.
 To quickly begin developing, execute following commands:
 
 ```sh

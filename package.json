@@ -1,7 +1,7 @@
 {
-  "name": "@ynaxon/search-in-file",
+  "name": "@ynaxon/sherlock",
   "version": "1.0.0",
-  "description": "A simple tool for searching text in any file",
+  "description": "Sherlock is a simple tool for searching text in any file",
   "author": "Yonatan Naxon",
   "scripts": {
     "build-dev": "webpack --mode development --env NODE_ENV=development",
