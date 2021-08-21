@@ -1,0 +1,32 @@
+.uploadFilePage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #151c24;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.75rem;
+  line-height: 3rem;
+
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  text-align: center;
+}
+
+.uploadInput {
+  width: 18.5rem;
+  margin-block-start: 2.5rem;
+  margin-block-end: 0.5rem;
+}
+
+.error {
+  color: #d10000;
+}

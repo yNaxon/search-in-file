@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<label
+  className="fileInput"
+  data-testid="file-input"
+>
+  Upload File
+  <input
+    className="input"
+    type="file"
+  />
+</label>
+`;
