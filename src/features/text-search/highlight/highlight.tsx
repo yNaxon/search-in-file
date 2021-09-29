@@ -21,6 +21,7 @@ export function Highlight({ active, className, text, }: HighlightProps) {
     <mark
       className={classNames(styles.highlight, className, { [styles.active]: active })}
       ref={ref}
+      role="mark"
     >
       {text}
     </mark>

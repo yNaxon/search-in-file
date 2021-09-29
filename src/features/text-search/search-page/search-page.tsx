@@ -9,6 +9,7 @@ export function SearchPage() {
   const searchState = useAppSelector(state => state.textSearch);
   const hasResults = searchState.matchingChunksIndices.length > 0;
   const [showSearch, setShowSearch] = useState(false);
+  const hideSearch = () => setShowSearch(false);
 
   useEffect(() => {
     const listener = (event: KeyboardEvent) => {
@@ -28,7 +29,7 @@ export function SearchPage() {
   }, []);
 
   return (
-    <div className={styles.searchPage} data-testid="SearchTextPage">
+    <div className={styles.searchPage}>
       <aside className={styles.aside}>
         <div className={styles.content}>
           <h1 className={styles.title}>
@@ -37,7 +38,7 @@ export function SearchPage() {
           {showSearch && (
             <TextSearchDialog
               initialFocus={true}
-              onClear={() => setShowSearch(false)}
+              onClear={hideSearch}
             />
           )}
         </div>
