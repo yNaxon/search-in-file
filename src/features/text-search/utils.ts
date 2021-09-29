@@ -11,7 +11,7 @@ export function indexOfAll(search: string, text: string) {
 
   while (lastMatchPosition >= 0) {
     positionList.push(lastMatchPosition);
-    lastMatchPosition = lowerCaseText.indexOf(search, lastMatchPosition + lowerCaseSearch.length);
+    lastMatchPosition = lowerCaseText.indexOf(lowerCaseSearch, lastMatchPosition + lowerCaseSearch.length);
   }
   return positionList;
 }

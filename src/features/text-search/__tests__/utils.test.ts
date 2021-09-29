@@ -11,6 +11,16 @@ describe('test indexOfAll', () => {
     expect(positions).toEqual(expectedPositions);
   });
 
+  it('should return a list of all occurences positions with uppercase search string', () => {
+    const text = 'Lorem ipsum dolor sit amet';
+    const search = 'L';
+
+    const expectedPositions = [0, 14];
+    const positions = indexOfAll(search, text);
+
+    expect(positions).toEqual(expectedPositions);
+  });
+
   it('should return an empty list when there is no occurence', () => {
     const text = 'Lorem ipsum dolor sit amet';
     const search = 'z';
